@@ -1,28 +1,17 @@
 #include <iostream>
 #include "ConsoleColor.h"
-#include "TarotCard.h"
+#include <ctime>
+#include <cstdlib>
+#include "TarotDeck.h"
 int main()
 {
-    TarotCard tower(
-        16,
-        "The Tower",
-        "Upheaval, revelation, sudden change",
-        "The Tower represents sudden disruption or revelation that challenges an unstable foundation.",
-        "You may be resisting necessary change or attempting to delay an unavoidable transformation.",
-        R"(
-        +-------------------+
-        |        XVI        |
-        |        /\/\       |
-        |       / /\ \      |
-        |      / /  \ \     |
-        |       | [] |      |
-        |      /| [] |\     |
-        |     /_|____|_\    |
-        |                   |
-        |     THE TOWER     |
-        +-------------------+
-)"
-);	
-    tower.DisplayCard();
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+    TarotDeck deck;
+
+    deck.DisplayDeck();
+    std::cout << "\nThe cards are shuffling...\n";
+    std::cout << "Your card is: \n";
+    deck.DrawCard();
     std::cin.get();
 }
