@@ -4,5 +4,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="TarotReader/TarotReader.vcxproj" />
+  <Project Path="TarotReader/TarotReader.vcxproj" Id="77d99fe7-1acc-4820-93ee-fdb67d37b907" />
 </Solution>
