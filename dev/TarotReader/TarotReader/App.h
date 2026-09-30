@@ -11,6 +11,6 @@ private:
 	void DisplayMenu() const;
 	void DrawCard();
 	void BrowseCards();
-	void DisplayAbout();
+	void DisplayAbout() const;
 };
 

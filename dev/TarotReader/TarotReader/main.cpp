@@ -1,17 +1,8 @@
-#include <iostream>
-#include "ConsoleColor.h"
-#include <ctime>
-#include <cstdlib>
-#include "TarotDeck.h"
+#include "App.h"
 int main()
 {
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+	App app;
+	app.Run();
 
-    TarotDeck deck;
-
-    deck.DisplayDeck();
-    std::cout << "\nThe cards are shuffling...\n";
-    std::cout << "Your card is: \n";
-    deck.DrawCard();
-    std::cin.get();
+	return 0;
 }

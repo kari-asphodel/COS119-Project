@@ -29,7 +29,7 @@ void App::Run()
 			break;
 		case 4:
 			std::cout << "\n";
-			std::cout < "The cards have spoken...Until next time.\n";
+			std::cout << "The cards have spoken...Until next time.\n";
 			break;
 		default:
 			ConsoleColor::Print("\nThe cards do not recognize that choice.\n", ConsoleColor::Ink::Red);
@@ -92,7 +92,7 @@ void App::DrawCard()
 {
     ConsoleColor::Print("\nThe cards are shuffling...\n", ConsoleColor::Ink::Purple);
     ConsoleColor::Print("Your card is:\n", ConsoleColor::Ink::Green);
-    deck.DisplayCard();
+    deck.DrawCard();
 }
 
 void App::BrowseCards()
