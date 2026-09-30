@@ -3,8 +3,14 @@
 class TarotCard
 {
 public:
-	TarotCart(int number, const std::string& name,
-		const std::string& keywords, const std::string& uprightMeaning, const std::string& reversedMeaning, const std::string& asciiArt);
+	TarotCard(
+		int number,
+		const std::string& name,
+		const std::string& keywords,
+		const std::string& uprightMeaning,
+		const std::string& reversedMeaning,
+		const std::string& asciiArt
+	);	
 	int GetNumber() const;
 	std::string GetName() const; 
 	std::string GetKeywords() const; 

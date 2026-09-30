@@ -2,8 +2,13 @@
 #include "ConsoleColor.h"
 #include <iostream>
 
-TarotCard::TarotCart(int number, const std::string& name,
-	const std::string& keywords, const std::string& uprightMeaning, const std::string& reversedMeaning, const std::string& asciiArt)
+TarotCard::TarotCard(
+	int number,
+	const std::string& name,
+	const std::string& keywords,
+	const std::string& uprightMeaning,
+	const std::string& reversedMeaning,
+	const std::string& asciiArt)
 {
 	this->number = number;
 	this->name = name;
