@@ -98,3 +98,102 @@ void TarotReading::ThreeCardReading()
         << question
         << "\n";
 }
+
+void TarotReading::DisplayThreeCardSpread(
+    const TarotCard& past, bool pastReversed,
+    const TarotCard& present, bool presentReversed,
+    const TarotCard& future, bool futureReversed) const
+{
+    std::vector<std::string> pastArt = past.GetAsciiLines();
+    std::vector<std::string> presentArt = present.GetAsciiLines();
+    std::vector<std::string> futureArt = future.GetAsciiLines();
+    const int columnWidth = 30;
+    ConsoleColor::Print(
+        "\n==========================================================================================\n",
+        ConsoleColor::Ink::Purple
+    );
+    std::cout << std::setw(columnWidth) 
+        << std::left 
+        << "          PAST" 
+        << std::setw(columnWidth) 
+        << "        PRESENT" 
+        << std::setw(columnWidth) 
+        << "        FUTURE"
+        << "\n";
+    ConsoleColor::Print(
+        "==========================================================================================\n\n",
+        ConsoleColor::Ink::Purple
+    );
+    for (int i = 0 i < static_cast<int>(pastArt.size()); i++)
+    {
+        std::cout
+            << std::setw(columnWidth)
+            << std::left
+            << pastArt[i]
+
+            << std::setw(columnWidth)
+            << presentArt[i]
+
+            << std::setw(columnWidth)
+            << futureArt[i]
+
+            << "\n";
+    }
+    std::cout << "\n";
+    std::string pastOrientation = "UPRIGHT";
+    if (pastReversed)
+    {
+        pastOrientation = "REVERSED";
+    }
+    std::string presentOrientation = "UPRIGHT";
+    if (presentReversed)
+    {
+        presentOrientation = "REVERSED";
+    }
+    std::string futureOrientation = "UPRIGHT";
+    if (futureReversed)
+    {
+        futureOrientation = "REVERSED";
+    }
+    std::cout
+        << std::setw(columnWidth)
+        << std::left
+        << pastOrientation
+
+        << std::setw(columnWidth)
+        << presentOrientation
+
+        << std::setw(columnWidth)
+        << futureOrientation
+
+        << "\n";
+}
+
+void TarotReading::DisplayMeaning(const std::string& position, const TarotCard& card, bool isReversed) const 
+{
+    ConsoleColor::Print(
+        "\n----------------------------------------\n",
+        ConsoleColor::Ink::Purple
+    );
+    ConsoleColor::Print(position + " - " + card.GetName() + "\n", ConsoleColor::Ink::Yellow);
+    if (isReversed)
+    {
+        ConsoleColor::Print("REVERSED\n", ConsoleColor::Ink::Red);
+    }
+    else
+    {
+        ConsoleColor::Print("UPRIGHT\n", ConsoleColor::Ink::Green);
+    }
+    ConsoleColor::Print("Keywords: ", ConsoleColor::Ink::Cyan);
+    std::cout << card.GetKeywords() << "\n\n";
+    
+    ConsoleColor::Print("Meaning: ", ConsoleColor::Ink::Cyan);
+    if (isReversed)
+    {
+        std::cout << card.GetReversedMeaning() << "\n";
+    }
+    else
+    {
+        std::cout << card.GetUprightMeaning() << "\n";
+    }
+}
