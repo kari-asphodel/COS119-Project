@@ -92,12 +92,7 @@ void App::DisplayMenu() const
     std::cout << "\n";
 }
 
-void App::DrawCard()
-{
-    ConsoleColor::Print("\nThe cards are shuffling...\n", ConsoleColor::Ink::Purple);
-    ConsoleColor::Print("Your card is:\n", ConsoleColor::Ink::Green);
-    deck.DrawCard();
-}
+
 
 void App::BrowseCards()
 {
@@ -120,4 +115,32 @@ void App::DisplayAbout() const
     std::cout << "ABOUT THE MAJOR ARCANA\n";
     std::cout << "----------------------------------------\n";
     std::cout << "The Major Arcana contains 22 cards,\n numbered from 0 to 21.\n\nThese cards often represent major themes,\nexperiences, lessons, and transistions.\n";
+}
+
+void App::DisplayWelcome() const
+{
+    ConsoleColor::Print(
+        R"(
+              .       *       .
+        *                       *
+                 .-------.
+                /         \
+               |    *      |
+               |           |
+                \         /
+                 '-------'
+            *                 .
+                 .       *
+
+        THE VEILED ARCANA
+           TAROT READER
+
+)",
+ConsoleColor::Ink::Purple
+);
+
+    ConsoleColor::Print(
+        "        The cards are waiting...\n\n",
+        ConsoleColor::Ink::Cyan
+    );
 }

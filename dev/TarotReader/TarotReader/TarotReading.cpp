@@ -72,7 +72,7 @@ void TarotReading::ThreeCardReading()
     std::cout << "Think about the situation you would like the cards to explore.\n\n";
     std::string question = Input::GetString("Enter your question or intention:\n");
     ConsoleColor::Print("\nShuffling the deck...\n\n", ConsoleColor::Ink::Purple);
-    std::vector<int> selectedCards = deck.DrawUniqueCard();
+    std::vector<int> selectedCards = deck.DrawUniqueCard(3);
     const TarotCard& past = deck.GetCard(selectedCards[0]);
     const TarotCard& present = deck.GetCard(selectedCards[1]);
     const TarotCard& future = deck.GetCard(selectedCards[2]);
@@ -124,7 +124,7 @@ void TarotReading::DisplayThreeCardSpread(
         "==========================================================================================\n\n",
         ConsoleColor::Ink::Purple
     );
-    for (int i = 0 i < static_cast<int>(pastArt.size()); i++)
+    for (int i = 0; i < static_cast<int>(pastArt.size()); i++)
     {
         std::cout
             << std::setw(columnWidth)

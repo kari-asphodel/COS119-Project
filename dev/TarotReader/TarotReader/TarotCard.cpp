@@ -71,8 +71,8 @@ void TarotCard::DisplayCard() const
 
 std::vector<std::string>TarotCard::GetAsciiLines() const
 {
-	std::vector < std::string lines;
-	std::stingstream stream(asciiArt);
+	std::vector<std::string> lines;
+	std::stringstream stream(asciiArt);
 	std::string line;
 	while (std::getline(stream, line))
 	{
@@ -84,7 +84,7 @@ std::vector<std::string>TarotCard::GetAsciiLines() const
 	return lines;
 }
 
-void TarotCard::DisplayReading(bool isReveresed) const
+void TarotCard::DisplayReading(bool isReversed) const
 {
 	std::cout << "\n";
 
