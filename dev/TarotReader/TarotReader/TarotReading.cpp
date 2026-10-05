@@ -52,3 +52,49 @@ void TarotReading::OneCardReading()
     ConsoleColor::Print("\nYour question:\n", ConsoleColor::Ink::Yellow);
     std::cout << question << "\n";
 }
+
+void TarotReading::ThreeCardReading()
+{
+    ConsoleColor::Print(
+        "\n========================================\n",
+        ConsoleColor::Ink::Purple
+    );
+
+    ConsoleColor::Print(
+        "       PAST - PRESENT - FUTURE\n",
+        ConsoleColor::Ink::Purple
+    );
+
+    ConsoleColor::Print(
+        "========================================\n\n",
+        ConsoleColor::Ink::Purple
+    );
+    std::cout << "Think about the situation you would like the cards to explore.\n\n";
+    std::string question = Input::GetString("Enter your question or intention:\n");
+    ConsoleColor::Print("\nShuffling the deck...\n\n", ConsoleColor::Ink::Purple);
+    std::vector<int> selectedCards = deck.DrawUniqueCard();
+    const TarotCard& past = deck.GetCard(selectedCards[0]);
+    const TarotCard& present = deck.GetCard(selectedCards[1]);
+    const TarotCard& future = deck.GetCard(selectedCards[2]);
+
+    bool pastReversed = DetermineOrientation();
+    bool presentReversed = DetermineOrientation();
+    bool futureReversed = DetermineOrientation();
+    DisplayThreeCardSpread(past, pastReversed, present, presentReversed, future, futureReversed);
+    DisplayMeaning("PAST", past, pastReversed);
+    DisplayMeaning("PRESENT", present, presentReversed);
+    DisplayMeaning("FUTURE", future, futureReversed);
+    ConsoleColor::Print(
+        "\n========================================\n",
+        ConsoleColor::Ink::Purple
+    );
+
+    ConsoleColor::Print(
+        "Your question:\n",
+        ConsoleColor::Ink::Yellow
+    );
+
+    std::cout
+        << question
+        << "\n";
+}
