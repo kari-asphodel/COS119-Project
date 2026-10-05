@@ -1,5 +1,6 @@
 #include "App.h"
 #include "ConsoleColor.h"
+#include "Input.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
@@ -12,10 +13,10 @@ App::App()
 void App::Run()
 {
 	int choice = 0;
-	while (choice != 4)
+	while (choice != 5)
 	{
 		DisplayMenu();
-		std::cin >> choice;
+        choice = Input::GetNumber("\nEnter a menu option between 1-5: ", 1, 5);
 		switch (choice)
 		{
 		case 1:
@@ -100,8 +101,7 @@ void App::BrowseCards()
     deck.DisplayDeck();
     int cardChoice = 0;
     std::cout << "\n";
-    std::cout << "Enter a card number (0-21): ";
-    std::cin >> cardChoice;
+    cardChoice = Input::GetNumber("\nEnter a card number (0-21): ", 0, 21);
     if (cardChoice >= 0 && cardChoice <= 21)
     {
         deck.DisplayCard(cardChoice);
