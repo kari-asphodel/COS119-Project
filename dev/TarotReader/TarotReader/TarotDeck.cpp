@@ -492,8 +492,13 @@ void TarotDeck::DisplayCard(int index) const
     }
 }
 
-void TarotDeck::DrawCard() const
+const TarotCard& TarotDeck::DrawCard() const
 {
-    int randomIndex = std::rand() & cards.size();
-    cards[randomIndex].DisplayCard();
+    int randomIndex = std::rand() % static_cast<int>(cards.size());
+    return cards[randomIndex];
+}
+
+const TarotCard& TarotDeck::GetCard(int index) const
+{
+    return cards[index];
 }
