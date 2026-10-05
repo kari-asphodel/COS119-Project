@@ -5,13 +5,14 @@
 #include <ctime>
 #include <iostream>
 
-App::App()
+App::App() : reading(deck)
 {
 	std::srand(static_cast<unsigned int>(std::time(nullptr)));
 }
 
 void App::Run()
 {
+    DisplayWelcome();
 	int choice = 0;
 	while (choice != 5)
 	{
@@ -20,15 +21,18 @@ void App::Run()
 		switch (choice)
 		{
 		case 1:
-			DrawCard();
+			reading.OneCardReading();
 			break;
 		case 2:
-			BrowseCards();
+			reading.ThreeCardReading();
 			break;
 		case 3: 
-			DisplayAbout();
+			BrowseCards();
 			break;
-		case 4:
+        case 4:
+            DisplayAbout();
+            break;
+		case 5:
 			std::cout << "\n";
 			std::cout << "The cards have spoken...Until next time.\n";
 			break;
@@ -62,31 +66,30 @@ void App::DisplayMenu() const
     std::cout << "\n";
 
     ConsoleColor::Print(
-        "1. Draw a Card\n",
+        "1. One-Card Reading\n",
         ConsoleColor::Ink::Cyan
     );
 
     ConsoleColor::Print(
-        "2. Browse the Major Arcana\n",
+        "2. Three-Card Reading\n",
         ConsoleColor::Ink::Cyan
     );
 
     ConsoleColor::Print(
-        "3. About Tarot\n",
+        "3. Browse the Major Arcana\n",
+        ConsoleColor::Ink::Cyan
+    );
+    ConsoleColor::Print(
+        "4. About Tarot\n",
         ConsoleColor::Ink::Cyan
     );
 
     ConsoleColor::Print(
-        "4. Exit\n",
+        "5. Exit\n",
         ConsoleColor::Ink::Cyan
     );
 
     std::cout << "\n";
-
-    ConsoleColor::Print(
-        "Choose your path: ",
-        ConsoleColor::Ink::Yellow
-    );
 }
 
 void App::DrawCard()
