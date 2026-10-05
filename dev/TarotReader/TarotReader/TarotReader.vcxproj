@@ -205,6 +205,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TarotCard.cpp" />
     <ClCompile Include="TarotDeck.cpp" />
+    <ClCompile Include="TarotReading.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -212,6 +213,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="TarotCard.h" />
     <ClInclude Include="TarotDeck.h" />
+    <ClInclude Include="TarotReading.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
