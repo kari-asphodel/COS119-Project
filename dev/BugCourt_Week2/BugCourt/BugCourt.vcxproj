@@ -29,8 +29,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{77d99fe7-1acc-4820-93ee-fdb67d37b907}</ProjectGuid>
-    <RootNamespace>TarotReader</RootNamespace>
+    <ProjectGuid>{1973836c-5567-4a43-a7d8-bb68eeb03779}</ProjectGuid>
+    <RootNamespace>BugCourt</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -200,20 +200,16 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="App.cpp" />
-    <ClCompile Include="Input.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="TarotCard.cpp" />
-    <ClCompile Include="TarotDeck.cpp" />
-    <ClCompile Include="TarotReading.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="App.h" />
-    <ClInclude Include="ConsoleColor.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="TarotCard.h" />
-    <ClInclude Include="TarotDeck.h" />
-    <ClInclude Include="TarotReading.h" />
+    <ClCompile Include="Case1.cpp" />
+    <ClCompile Include="Case10.cpp" />
+    <ClCompile Include="Case2.cpp" />
+    <ClCompile Include="Case3.cpp" />
+    <ClCompile Include="Case4.cpp" />
+    <ClCompile Include="Case5.cpp" />
+    <ClCompile Include="Case6.cpp" />
+    <ClCompile Include="Case7.cpp" />
+    <ClCompile Include="Case8.cpp" />
+    <ClCompile Include="Case9.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

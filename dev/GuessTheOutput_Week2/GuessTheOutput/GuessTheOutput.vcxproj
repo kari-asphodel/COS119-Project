@@ -29,8 +29,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{77d99fe7-1acc-4820-93ee-fdb67d37b907}</ProjectGuid>
-    <RootNamespace>TarotReader</RootNamespace>
+    <ProjectGuid>{e5465189-bd7c-45c3-8d28-f73c41cd2bc6}</ProjectGuid>
+    <RootNamespace>GuessTheOutput</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -200,20 +200,17 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="App.cpp" />
-    <ClCompile Include="Input.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="TarotCard.cpp" />
-    <ClCompile Include="TarotDeck.cpp" />
-    <ClCompile Include="TarotReading.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="App.h" />
-    <ClInclude Include="ConsoleColor.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="TarotCard.h" />
-    <ClInclude Include="TarotDeck.h" />
-    <ClInclude Include="TarotReading.h" />
+    <ClCompile Include="Round1.cpp" />
+    <ClCompile Include="Round10.cpp" />
+    <ClCompile Include="Round11.cpp" />
+    <ClCompile Include="Round2.cpp" />
+    <ClCompile Include="Round3.cpp" />
+    <ClCompile Include="Round4.cpp" />
+    <ClCompile Include="Round5.cpp" />
+    <ClCompile Include="Round6.cpp" />
+    <ClCompile Include="Round7.cpp" />
+    <ClCompile Include="Round8.cpp" />
+    <ClCompile Include="Round9.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

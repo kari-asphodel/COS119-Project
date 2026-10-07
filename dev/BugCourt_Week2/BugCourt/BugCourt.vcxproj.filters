@@ -15,43 +15,35 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Case3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TarotCard.cpp">
+    <ClCompile Include="Case2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TarotDeck.cpp">
+    <ClCompile Include="Case1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="App.cpp">
+    <ClCompile Include="Case4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Input.cpp">
+    <ClCompile Include="Case5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TarotReading.cpp">
+    <ClCompile Include="Case6.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ConsoleColor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TarotCard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TarotDeck.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="App.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TarotReading.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClCompile Include="Case7.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Case8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Case9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Case10.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

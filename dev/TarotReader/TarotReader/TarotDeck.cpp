@@ -492,8 +492,48 @@ void TarotDeck::DisplayCard(int index) const
     }
 }
 
-void TarotDeck::DrawCard() const
+const TarotCard& TarotDeck::DrawCard() const
 {
-    int randomIndex = std::rand() & cards.size();
-    cards[randomIndex].DisplayCard();
+    int randomIndex = std::rand() % static_cast<int>(cards.size());
+    return cards[randomIndex];
+}
+
+const TarotCard& TarotDeck::GetCard(int index) const
+{
+    return cards[index];
+}
+
+std::vector<int>TarotDeck::DrawUniqueCard(int amount) const
+{
+    std::vector<int> selectedIndexes;
+    if (cards.empty())
+    {
+        return selectedIndexes;
+    }
+    int cardCount = static_cast<int>(cards.size());
+
+    if (amount > cardCount)
+    {
+        amount = cardCount;
+    }
+    while (static_cast<int>(selectedIndexes.size()) < amount)
+    {
+        int randomIndex = std::rand() % cardCount;
+
+        bool alreadySelected = false;
+
+        for (int index : selectedIndexes)
+        {
+            if (index == randomIndex)
+            {
+                alreadySelected = true;
+                break;
+            }
+        }
+        if (!alreadySelected)
+        {
+            selectedIndexes.push_back(randomIndex);
+        }
+    }
+    return selectedIndexes;
 }
