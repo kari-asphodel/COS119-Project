@@ -9,5 +9,5 @@ void BonusRound()
     // A. Sword
     // B. Shield
     // C. Potion
-    // D. Out-of-bounds problem
+    // D. Out-of-bounds problem - THIS ONE
 }

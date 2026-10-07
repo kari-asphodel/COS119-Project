@@ -7,7 +7,7 @@ void Round10()
 
     std::cout << numbers.size();
     // A. 3
-    // B. 4
+    // B. 4 - THIS ONE
     // C. 16
     // D. Lost numbers detected
 }

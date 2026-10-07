@@ -7,6 +7,6 @@ void Round7()
     std::cout << "Hello, " << name;
     // A. Hello
     // B. Goblin
-    // C. Hello, Goblin
+    // C. Hello, Goblin - THIS ONE
     // D. Hello, name
 }

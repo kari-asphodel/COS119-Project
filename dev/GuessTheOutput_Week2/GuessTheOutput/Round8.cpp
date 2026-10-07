@@ -7,7 +7,7 @@ void Round8()
     potions--;
 
     std::cout << potions;
-    // A. 1
+    // A. 1 - THIS ONE
     // B. 2
     // C. 3
     // D. Potion evaporates

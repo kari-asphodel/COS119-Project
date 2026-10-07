@@ -7,7 +7,7 @@ void Round4()
 
     std::cout << items[1];
     // A. Sword
-    // B. Shield
+    // B. Shield - THIS ONE
     // C. Potion
     // D. The vector screams
 }
