@@ -8,5 +8,8 @@ void Case5()
 
     inventory.clear();
 
-    std::cout << inventory[0];
+    if (!inventory.empty())
+    {
+        std::cout << inventory[0];
+    }
 }

@@ -11,6 +11,7 @@ void Case2()
         if (choice == 1)
         {
             std::cout << "Goodbye!\n";
+            break;
         }
     }
 }

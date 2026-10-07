@@ -6,5 +6,6 @@ void Case6()
     while (health < 100)
     {
         std::cout << "Healing...\n";
+        health += 10;
     }
 }

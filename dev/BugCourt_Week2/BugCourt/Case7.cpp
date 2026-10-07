@@ -5,5 +5,10 @@ void Case7()
 
     dragons -= 10;
 
+    if (dragons < 0)
+    {
+        dragons = 0;
+    }
+
     std::cout << dragons;
 }

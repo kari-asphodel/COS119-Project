@@ -1,7 +1,7 @@
 #include <iostream>
 void Case4()
 {
-    int gold;
+    int gold = 53;
 
     std::cout << gold << "\n";
 
