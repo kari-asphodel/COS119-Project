@@ -19,6 +19,14 @@ bool TarotReading::DetermineOrientation() const
 	}
 	return false;
 }
+std::string TarotReading::GetOrientationText(bool isReversed) const
+{
+    if (isReversed)
+    {
+        return "REVERSED";
+    }
+    return "UPRIGHT";
+}
 
 void TarotReading::OneCardReading()
 {
@@ -52,6 +60,9 @@ void TarotReading::OneCardReading()
     card.DisplayReading(isReversed);
     ConsoleColor::Print("\nYour question:\n", ConsoleColor::Ink::Yellow);
     std::cout << question << "\n";
+    ReadingRecord record("ONE-CARD READING", question);
+    record.AddCard("", card.GetName(), isReversed);
+    history.push_back(record);
 }
 
 void TarotReading::ThreeCardReading()
@@ -98,6 +109,12 @@ void TarotReading::ThreeCardReading()
     std::cout
         << question
         << "\n";
+
+    ReadingRecord record("PAST - PRESENT - FUTURE", question);
+    record.AddCard("PAST", past.GetName(), pastReversed);
+    record.AddCard("PRESENT", present.GetName(), presentReversed);
+    record.AddCard("FUTURE", future.GetName(), futureReversed);
+    history.push_back(record);
 }
 
 void TarotReading::DisplayThreeCardSpread(
@@ -196,5 +213,35 @@ void TarotReading::DisplayMeaning(const std::string& position, const TarotCard& 
     else
     {
         std::cout << card.GetUprightMeaning() << "\n";
+    }
+}
+
+void TarotReading::DisplayHistory() const
+{
+    ConsoleColor::Print(
+        "\n========================================\n",
+        ConsoleColor::Ink::Purple
+    );
+
+    ConsoleColor::Print(
+        "             READING HISTORY\n",
+        ConsoleColor::Ink::Purple
+    );
+
+    ConsoleColor::Print(
+        "========================================\n",
+        ConsoleColor::Ink::Purple
+    );
+    if (history.empty())
+    {
+        ConsoleColor::Print("\nThe cards have no stories to remember yet..\n", ConsoleColor::Ink::Cyan);
+        return;
+    }
+    for (size_t i = 0; i < history.size(); i++)
+    {
+        std::cout << "\n";
+        ConsoleColor::Print("Reading " + std::to_string(i + 1) + "\n", ConsoleColor::Ink::Yellow);
+        history[i].Display();
+        std::cout << "\n";
     }
 }

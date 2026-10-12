@@ -27,7 +27,7 @@ void ReadingRecord::Display() const
 			ConsoleColor::Print(positions[i] + ": ", ConsoleColor::Ink::Cyan);
 		}
 		std::cout << cardNames[i];
-		if (reveresedStates[i])
+		if (reversedStates[i])
 		{
 			ConsoleColor::Print(" - REVERSED\n", ConsoleColor::Ink::Red);
 		}

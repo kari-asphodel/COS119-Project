@@ -37,6 +37,7 @@ void App::Run()
 			BrowseCards();
 			break;
         case 4:
+            reading.DisplayHistory();
             break;
         case 5:
             DisplayAbout();
