@@ -20,27 +20,40 @@ void App::Run()
         return;
     }
     DisplayWelcome();
+    Input::WaitForEnter();
+
 	int choice = 0;
     while (choice != TarotConstants::MenuMaximum)
 	{
+        ClearScreen();
 		DisplayMenu();
         choice = Input::GetNumber("\nEnter a menu option between 1-6: ", TarotConstants::MenuMinimum, TarotConstants::MenuMaximum);
 		switch (choice)
 		{
 		case 1:
 			reading.OneCardReading();
+            Input::WaitForEnter();
+            ClearScreen();
 			break;
 		case 2:
 			reading.ThreeCardReading();
+            Input::WaitForEnter();
+            ClearScreen();
 			break;
 		case 3: 
 			BrowseCards();
+            Input::WaitForEnter();
+            ClearScreen();
 			break;
         case 4:
             reading.DisplayHistory();
+            Input::WaitForEnter();
+            ClearScreen();
             break;
         case 5:
             DisplayAbout();
+            Input::WaitForEnter();
+            ClearScreen();
             break;
 		case 6:
 			std::cout << "\n";
@@ -50,6 +63,11 @@ void App::Run()
 			ConsoleColor::Print("\nThe cards do not recognize that choice.\n", ConsoleColor::Ink::Red);
 			break;
 		}
+        if (choice != TarotConstants::MenuMaximum)
+        {
+            Input::WaitForEnter();
+            ClearScreen();
+        }
 	}
 }
 
@@ -159,3 +177,8 @@ ConsoleColor::Ink::Purple
         ConsoleColor::Ink::Cyan
     );
 }
+
+void App::ClearScreen() const
+{
+    std::system("cls");
+ }

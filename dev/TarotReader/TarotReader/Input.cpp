@@ -50,3 +50,11 @@ std::string Input::GetString(const std::string& prompt , bool allowEmpty)
 		ConsoleColor::Print("The void cannot answer an empty question.\n", ConsoleColor::Ink::Red);
 	}
 }
+
+void Input::WaitForEnter()
+{
+	ConsoleColor::Print("\nPress Enter to Continue....", ConsoleColor::Ink::Cyan);
+	std::string input;
+
+	std::getline(std::cin, input);
+}
