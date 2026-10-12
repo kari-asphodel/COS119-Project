@@ -1,5 +1,6 @@
 #include "TarotReading.h"
 #include "ConsoleColor.h"
+#include "TarotConstants.h"
 #include "Input.h"
 #include <cstdlib>
 #include <iomanip>
@@ -72,7 +73,7 @@ void TarotReading::ThreeCardReading()
     std::cout << "Think about the situation you would like the cards to explore.\n\n";
     std::string question = Input::GetString("Enter your question or intention:\n");
     ConsoleColor::Print("\nShuffling the deck...\n\n", ConsoleColor::Ink::Purple);
-    std::vector<int> selectedCards = deck.DrawUniqueCard(3);
+    std::vector<int> selectedCards = deck.DrawUniqueCard(TarotConstants::ThreeCardSpreedSize);
     const TarotCard& past = deck.GetCard(selectedCards[0]);
     const TarotCard& present = deck.GetCard(selectedCards[1]);
     const TarotCard& future = deck.GetCard(selectedCards[2]);
@@ -107,7 +108,7 @@ void TarotReading::DisplayThreeCardSpread(
     std::vector<std::string> pastArt = past.GetAsciiLines();
     std::vector<std::string> presentArt = present.GetAsciiLines();
     std::vector<std::string> futureArt = future.GetAsciiLines();
-    const int columnWidth = 30;
+    const int columnWidth = TarotConstants::SpreadColumnWidth;
     ConsoleColor::Print(
         "\n==========================================================================================\n",
         ConsoleColor::Ink::Purple

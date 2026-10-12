@@ -212,6 +212,7 @@
     <ClInclude Include="ConsoleColor.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="TarotCard.h" />
+    <ClInclude Include="TarotConstants.h" />
     <ClInclude Include="TarotDeck.h" />
     <ClInclude Include="TarotReading.h" />
   </ItemGroup>

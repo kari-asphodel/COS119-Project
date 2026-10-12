@@ -53,5 +53,8 @@
     <ClInclude Include="TarotReading.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TarotConstants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
