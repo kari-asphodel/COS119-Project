@@ -1,17 +1,17 @@
 #include <iostream>
 
-int* CreateScore()
+int CreateScore()
 {
     int score = 100;
 
-    return &score;
+    return score;
 }
 
 int main()
 {
-    int* scorePtr = CreateScore();
+    int score = CreateScore();
 
-    std::cout << *scorePtr << '\n';
+    std::cout << score << '\n';
 
     return 0;
 }
