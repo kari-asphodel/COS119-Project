@@ -1,5 +1,6 @@
 #include "App.h"
 #include "ConsoleColor.h"
+#include "TarotConstants.h"
 #include "Input.h"
 #include <cstdlib>
 #include <ctime>
@@ -12,27 +13,49 @@ App::App() : reading(deck)
 
 void App::Run()
 {
+    if (!deck.IsLoaded())
+    {
+        ConsoleColor::Print("\nThe tarot deck could not be loaded.\n", ConsoleColor::Ink::Red);
+        ConsoleColor::Print("The program cannot continue.\n", ConsoleColor::Ink::Yellow);
+        return;
+    }
     DisplayWelcome();
+    Input::WaitForEnter();
+
 	int choice = 0;
-	while (choice != 5)
+    while (choice != TarotConstants::MenuMaximum)
 	{
+        ClearScreen();
 		DisplayMenu();
-        choice = Input::GetNumber("\nEnter a menu option between 1-5: ", 1, 5);
+        choice = Input::GetNumber("\nEnter a menu option between 1-6: ", TarotConstants::MenuMinimum, TarotConstants::MenuMaximum);
 		switch (choice)
 		{
 		case 1:
 			reading.OneCardReading();
+            Input::WaitForEnter();
+            ClearScreen();
 			break;
 		case 2:
 			reading.ThreeCardReading();
+            Input::WaitForEnter();
+            ClearScreen();
 			break;
 		case 3: 
 			BrowseCards();
+            Input::WaitForEnter();
+            ClearScreen();
 			break;
         case 4:
-            DisplayAbout();
+            reading.DisplayHistory();
+            Input::WaitForEnter();
+            ClearScreen();
             break;
-		case 5:
+        case 5:
+            DisplayAbout();
+            Input::WaitForEnter();
+            ClearScreen();
+            break;
+		case 6:
 			std::cout << "\n";
 			std::cout << "The cards have spoken...Until next time.\n";
 			break;
@@ -40,6 +63,11 @@ void App::Run()
 			ConsoleColor::Print("\nThe cards do not recognize that choice.\n", ConsoleColor::Ink::Red);
 			break;
 		}
+        if (choice != TarotConstants::MenuMaximum)
+        {
+            Input::WaitForEnter();
+            ClearScreen();
+        }
 	}
 }
 
@@ -80,12 +108,17 @@ void App::DisplayMenu() const
         ConsoleColor::Ink::Cyan
     );
     ConsoleColor::Print(
-        "4. About Tarot\n",
+        "4. Reading History\n",
         ConsoleColor::Ink::Cyan
     );
 
     ConsoleColor::Print(
-        "5. Exit\n",
+        "5. About Tarot\n",
+        ConsoleColor::Ink::Cyan
+    );
+
+    ConsoleColor::Print(
+        "6. Exit\n",
         ConsoleColor::Ink::Cyan
     );
 
@@ -99,8 +132,8 @@ void App::BrowseCards()
     deck.DisplayDeck();
     int cardChoice = 0;
     std::cout << "\n";
-    cardChoice = Input::GetNumber("\nEnter a card number (0-21): ", 0, 21);
-    if (cardChoice >= 0 && cardChoice <= 21)
+    cardChoice = Input::GetNumber("\nEnter a card number (0-21): ", TarotConstants::FirstMajorArcana, TarotConstants::LastMajorArcana);
+    if (cardChoice >= TarotConstants::FirstMajorArcana && cardChoice <= TarotConstants::LastMajorArcana)
     {
         deck.DisplayCard(cardChoice);
     }
@@ -144,3 +177,8 @@ ConsoleColor::Ink::Purple
         ConsoleColor::Ink::Cyan
     );
 }
+
+void App::ClearScreen() const
+{
+    std::system("cls");
+ }

@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include <vector>
 #include "TarotCard.h"
 class TarotDeck
@@ -11,9 +12,14 @@ public:
 	const TarotCard& DrawCard() const;
 	std::vector<int>DrawUniqueCard(int amount) const;
 
+	int GetCardCount() const;
+	bool IsLoaded() const;
+
 private:
 	std::vector<TarotCard> cards;
 
-	void CreateDeck();
+	void LoadDeckFromFile(const std::string& fileName);
+	std::string CreateAsciiArt(int number, const std::string& name) const;
+	bool IsValidIndex(int index)const;
 };
 

@@ -203,6 +203,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ReadingRecord.cpp" />
     <ClCompile Include="TarotCard.cpp" />
     <ClCompile Include="TarotDeck.cpp" />
     <ClCompile Include="TarotReading.cpp" />
@@ -211,7 +212,9 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="ConsoleColor.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="ReadingRecord.h" />
     <ClInclude Include="TarotCard.h" />
+    <ClInclude Include="TarotConstants.h" />
     <ClInclude Include="TarotDeck.h" />
     <ClInclude Include="TarotReading.h" />
   </ItemGroup>

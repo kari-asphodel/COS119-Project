@@ -1,15 +1,21 @@
 #pragma once
 #include <string>
 #include "TarotDeck.h"
+#include "ReadingRecord.h"
 class TarotReading
 {
 public:
 	TarotReading(TarotDeck& deck);
 	void OneCardReading();
 	void ThreeCardReading();
+	void DisplayHistory() const;
+	std::string CenterText(const std::string& text, int width) const;
 private:
 	TarotDeck& deck;
 	bool DetermineOrientation() const;
+	std::string GetOrientationText(bool isReveresed) const;
+
+	std::vector<ReadingRecord> history;
 
 	void DisplayThreeCardSpread(
 		const TarotCard& past, bool pastReversed, 

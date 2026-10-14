@@ -14,5 +14,6 @@ private:
 	void DisplayMenu() const;
 	void BrowseCards();
 	void DisplayAbout() const;
+	void ClearScreen() const;
 };
 
