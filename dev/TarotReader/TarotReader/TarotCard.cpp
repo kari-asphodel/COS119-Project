@@ -1,6 +1,7 @@
 #include "TarotCard.h"
 #include "ConsoleColor.h"
 #include <iostream>
+#include <iomanip>
 #include <sstream>
 
 TarotCard::TarotCard(

@@ -125,68 +125,91 @@ void TarotReading::DisplayThreeCardSpread(
     std::vector<std::string> pastArt = past.GetAsciiLines();
     std::vector<std::string> presentArt = present.GetAsciiLines();
     std::vector<std::string> futureArt = future.GetAsciiLines();
+
     const int columnWidth = TarotConstants::SpreadColumnWidth;
+
     ConsoleColor::Print(
         "\n==========================================================================================\n",
         ConsoleColor::Ink::Purple
     );
-    std::cout << std::setw(columnWidth) 
-        << std::left 
-        << "          PAST" 
-        << std::setw(columnWidth) 
-        << "        PRESENT" 
-        << std::setw(columnWidth) 
-        << "        FUTURE"
+
+    std::cout
+        << CenterText("PAST", columnWidth)
+        << CenterText("PRESENT", columnWidth)
+        << CenterText("FUTURE", columnWidth)
         << "\n";
+
     ConsoleColor::Print(
         "==========================================================================================\n\n",
         ConsoleColor::Ink::Purple
     );
-    for (int i = 0; i < static_cast<int>(pastArt.size()); i++)
+
+    // Find the tallest card so every row displays correctly.
+    std::size_t lineCount = pastArt.size();
+
+    if (presentArt.size() > lineCount)
     {
+        lineCount = presentArt.size();
+    }
+
+    if (futureArt.size() > lineCount)
+    {
+        lineCount = futureArt.size();
+    }
+
+    for (std::size_t i = 0; i < lineCount; i++)
+    {
+        std::string pastLine = "";
+        std::string presentLine = "";
+        std::string futureLine = "";
+
+        if (i < pastArt.size())
+        {
+            pastLine = pastArt[i];
+        }
+
+        if (i < presentArt.size())
+        {
+            presentLine = presentArt[i];
+        }
+
+        if (i < futureArt.size())
+        {
+            futureLine = futureArt[i];
+        }
+
         std::cout
-            << std::setw(columnWidth)
-            << std::left
-            << pastArt[i]
-
-            << std::setw(columnWidth)
-            << presentArt[i]
-
-            << std::setw(columnWidth)
-            << futureArt[i]
-
+            << CenterText(pastLine, columnWidth)
+            << CenterText(presentLine, columnWidth)
+            << CenterText(futureLine, columnWidth)
             << "\n";
     }
-    std::cout << "\n";
-    std::string pastOrientation = "UPRIGHT";
-    if (pastReversed)
-    {
-        pastOrientation = "REVERSED";
-    }
-    std::string presentOrientation = "UPRIGHT";
-    if (presentReversed)
-    {
-        presentOrientation = "REVERSED";
-    }
-    std::string futureOrientation = "UPRIGHT";
-    if (futureReversed)
-    {
-        futureOrientation = "REVERSED";
-    }
-    std::cout
-        << std::setw(columnWidth)
-        << std::left
-        << pastOrientation
 
-        << std::setw(columnWidth)
-        << presentOrientation
-
-        << std::setw(columnWidth)
-        << futureOrientation
-
+    std::cout << "\n"
+        << CenterText(GetOrientationText(pastReversed), columnWidth)
+        << CenterText(GetOrientationText(presentReversed), columnWidth)
+        << CenterText(GetOrientationText(futureReversed), columnWidth)
         << "\n";
 }
+std::string TarotReading::CenterText(
+    const std::string& text,
+    int width) const
+{
+    if (text.length() >= static_cast<std::size_t>(width))
+    {
+        return text;
+    }
 
+    int totalPadding =
+        width - static_cast<int>(text.length());
+
+    int leftPadding = totalPadding / 2;
+    int rightPadding = totalPadding - leftPadding;
+
+    return std::string(leftPadding, ' ')
+        + text
+        + std::string(rightPadding, ' ');
+}
 void TarotReading::DisplayMeaning(const std::string& position, const TarotCard& card, bool isReversed) const 
 {
     ConsoleColor::Print(

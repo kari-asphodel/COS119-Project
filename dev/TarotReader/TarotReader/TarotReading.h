@@ -9,6 +9,7 @@ public:
 	void OneCardReading();
 	void ThreeCardReading();
 	void DisplayHistory() const;
+	std::string CenterText(const std::string& text, int width) const;
 private:
 	TarotDeck& deck;
 	bool DetermineOrientation() const;
