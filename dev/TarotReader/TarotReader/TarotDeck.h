@@ -17,9 +17,10 @@ public:
 
 private:
 	std::vector<TarotCard> cards;
+	std::vector<std::string> artworks;
 
 	void LoadDeckFromFile(const std::string& fileName);
-	std::string CreateAsciiArt(int number, const std::string& name) const;
 	bool IsValidIndex(int index)const;
+	bool LoadArtworkFromFile(const std::string& fileName);
 };
 
