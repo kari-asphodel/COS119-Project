@@ -9,6 +9,7 @@
 App::App() : reading(deck)
 {
 	std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    reading.LoadHistory("data/reading_history.txt");
 }
 
 void App::Run()
