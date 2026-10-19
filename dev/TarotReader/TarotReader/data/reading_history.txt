@@ -30,3 +30,26 @@ PAST|The Hermit|1
 PRESENT|The Hierophant|1
 FUTURE|The World|0
 END
+READING
+ONE-CARD READING
+10/19/2026
+should i gamble all my money at the nearest casino
+1
+|Judgement|0
+END
+READING
+ONE-CARD READING
+10/19/2026
+
+1
+|The Empress|1
+END
+READING
+PAST - PRESENT - FUTURE
+10/19/2026
+
+3
+PAST|Strength|1
+PRESENT|The High Priestess|1
+FUTURE|The Star|0
+END

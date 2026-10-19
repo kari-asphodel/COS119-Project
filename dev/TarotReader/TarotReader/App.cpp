@@ -18,6 +18,7 @@ void App::Run()
     {
         ConsoleColor::Print("\nThe tarot deck could not be loaded.\n", ConsoleColor::Ink::Red);
         ConsoleColor::Print("The program cannot continue.\n", ConsoleColor::Ink::Yellow);
+        Input::WaitForEnter();
         return;
     }
     DisplayWelcome();
