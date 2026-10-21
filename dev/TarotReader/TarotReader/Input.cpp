@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <string>
 
+// input validation for numbers
 int Input::GetNumber(const std::string& prompt, int min, int max)
 {
 	while (true)
@@ -33,7 +34,7 @@ int Input::GetNumber(const std::string& prompt, int min, int max)
 		}
 	}
 }
-
+// input validation for strings
 std::string Input::GetString(const std::string& prompt , bool allowEmpty)
 {
 	while (true)
@@ -50,7 +51,7 @@ std::string Input::GetString(const std::string& prompt , bool allowEmpty)
 		ConsoleColor::Print("The void cannot answer an empty question.\n", ConsoleColor::Ink::Red);
 	}
 }
-
+// wait for enter method 
 void Input::WaitForEnter()
 {
 	ConsoleColor::Print("\nPress Enter to Continue....", ConsoleColor::Ink::Cyan);

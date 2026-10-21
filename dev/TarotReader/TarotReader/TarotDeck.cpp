@@ -8,7 +8,7 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
-
+// constructor
 TarotDeck::TarotDeck()
 {
     if (!LoadArtworkFromFile("data/major_arcana_art.txt"))
@@ -17,6 +17,7 @@ TarotDeck::TarotDeck()
     }
     LoadDeckFromFile("data/major_arcana.txt");
 }
+// loading the ascii artwork
 bool TarotDeck::LoadArtworkFromFile(const std::string& fileName)
 {
     std::ifstream inputFile(fileName);
@@ -124,6 +125,7 @@ bool TarotDeck::LoadArtworkFromFile(const std::string& fileName)
 
     return true;
 }
+// loading the tarot deck from file
 void TarotDeck::LoadDeckFromFile(const std::string& fileName)
 {
     std::ifstream inputFile(fileName);
@@ -183,18 +185,19 @@ void TarotDeck::LoadDeckFromFile(const std::string& fileName)
     inputFile.close();
 }
 
-
+// check if the index is valid
 bool TarotDeck::IsValidIndex(int index) const
 {
     return index >= 0 && index < static_cast<int>(cards.size());
 }
+// verifying that the deck loaded properly
 bool TarotDeck::IsLoaded() const
 {
     const int expectedCards = TarotConstants::LastMajorArcana - TarotConstants::FirstMajorArcana + 1;
 
     return static_cast<int>(cards.size()) == expectedCards && static_cast<int>(artworks.size()) == expectedCards;
 }
-
+// display the entire deck
 void TarotDeck::DisplayDeck() const
 {
     std::cout << "\n==== MAJOR ARCANA ====\n\n";
@@ -206,7 +209,7 @@ void TarotDeck::DisplayDeck() const
             << "\n";
     }
 }
-
+// display individual card
 void TarotDeck::DisplayCard(int index) const
 {
     if (index >= 0 && index < static_cast<int>(cards.size()))
@@ -214,18 +217,18 @@ void TarotDeck::DisplayCard(int index) const
         cards[index].DisplayCard();
     }
 }
-
+// draw a single card
 const TarotCard& TarotDeck::DrawCard() const
 {
     int randomIndex = std::rand() % static_cast<int>(cards.size());
     return cards[randomIndex];
 }
-
+// get a single card
 const TarotCard& TarotDeck::GetCard(int index) const
 {
     return cards[index];
 }
-
+// draw a unique card from the others for three card spread to not get duplicates
 std::vector<int>TarotDeck::DrawUniqueCard(int amount) const
 {
     std::vector<int> selectedIndexes;

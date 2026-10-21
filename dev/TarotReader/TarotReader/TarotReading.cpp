@@ -9,9 +9,11 @@
 #include <ctime>
 #include <sstream>
 #include <fstream>
+
+// constructor
 TarotReading::TarotReading(TarotDeck& deck) : deck(deck)
 { }
-
+// determining if card is upright or reveresed
 bool TarotReading::DetermineOrientation() const
 {
 	int randomValue = std::rand() % 2;
@@ -21,6 +23,7 @@ bool TarotReading::DetermineOrientation() const
 	}
 	return false;
 }
+// determine the text for the card orientation
 std::string TarotReading::GetOrientationText(bool isReversed) const
 {
     if (isReversed)
@@ -29,7 +32,7 @@ std::string TarotReading::GetOrientationText(bool isReversed) const
     }
     return "UPRIGHT";
 }
-
+// display one card reading
 void TarotReading::OneCardReading()
 {
     ConsoleColor::Print(
@@ -67,7 +70,7 @@ void TarotReading::OneCardReading()
     history.push_back(record);
     SaveHistory("data/reading_history.txt");
 }
-
+// display three card reading
 void TarotReading::ThreeCardReading()
 {
     ConsoleColor::Print(
@@ -121,7 +124,7 @@ void TarotReading::ThreeCardReading()
     SaveHistory("data/reading_history.txt");
 
 }
-
+// display the spread centered in console
 void TarotReading::DisplayThreeCardSpread(
     const TarotCard& past, bool pastReversed,
     const TarotCard& present, bool presentReversed,
@@ -196,25 +199,22 @@ void TarotReading::DisplayThreeCardSpread(
         << CenterText(GetOrientationText(futureReversed), columnWidth)
         << "\n";
 }
-std::string TarotReading::CenterText(
-    const std::string& text,
-    int width) const
+// method to center the text on screen
+std::string TarotReading::CenterText(const std::string& text, int width) const
 {
     if (text.length() >= static_cast<std::size_t>(width))
     {
         return text;
     }
 
-    int totalPadding =
-        width - static_cast<int>(text.length());
+    int totalPadding = width - static_cast<int>(text.length());
 
     int leftPadding = totalPadding / 2;
     int rightPadding = totalPadding - leftPadding;
 
-    return std::string(leftPadding, ' ')
-        + text
-        + std::string(rightPadding, ' ');
+    return std::string(leftPadding, ' ') + text + std::string(rightPadding,'');
 }
+// displaying the card meaning
 void TarotReading::DisplayMeaning(const std::string& position, const TarotCard& card, bool isReversed) const 
 {
     ConsoleColor::Print(
@@ -243,7 +243,7 @@ void TarotReading::DisplayMeaning(const std::string& position, const TarotCard& 
         std::cout << card.GetUprightMeaning() << "\n";
     }
 }
-
+// display the past readings
 void TarotReading::DisplayHistory() const
 {
     ConsoleColor::Print(
@@ -273,7 +273,7 @@ void TarotReading::DisplayHistory() const
         std::cout << "\n";
     }
 }
-
+// get the current date
 std::string TarotReading::GetCurrentDate() const
 {
     std::time_t currentTime =
@@ -299,7 +299,7 @@ std::string TarotReading::GetCurrentDate() const
 
     return date.str();
 }
-
+// save the reading history
 void TarotReading::SaveHistory(const std::string& fileName) const
 {
     std::ofstream outputFile(fileName);
@@ -323,7 +323,7 @@ void TarotReading::SaveHistory(const std::string& fileName) const
     }
     outputFile.close();
 }
-
+// load the reading history
 void TarotReading::LoadHistory(const std::string& fileName) 
 {
     std::ifstream inputFile(

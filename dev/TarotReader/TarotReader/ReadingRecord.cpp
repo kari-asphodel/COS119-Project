@@ -1,20 +1,21 @@
 #include "ReadingRecord.h"
 #include "ConsoleColor.h"
 #include <iostream>
-
+// constructor
 ReadingRecord::ReadingRecord(const std::string& readingType, const std::string& question, const std::string& date)
 {
 	this->readingType = readingType;
 	this->question = question;
 	this->date = date;
 }
+// adding cards to the record
 void ReadingRecord::AddCard(const std::string& position, const std::string& cardName, bool isReversed)
 {
 	positions.push_back(position);
 	cardNames.push_back(cardName);
 	reversedStates.push_back(isReversed);
 }
-
+// display the individual record
 void ReadingRecord::Display() const
 {
 	ConsoleColor::Print(readingType + "\n", ConsoleColor::Ink::Purple);
@@ -44,7 +45,7 @@ void ReadingRecord::Display() const
 		ConsoleColor::Ink::Purple
 	);
 }
-
+// Getters
 std::string ReadingRecord::GetReadingType() const
 {
 	return readingType;

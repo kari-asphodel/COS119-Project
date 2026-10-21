@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+// this class holds the record of one reading. 
 class ReadingRecord
 {
 public:

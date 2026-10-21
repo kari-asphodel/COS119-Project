@@ -1,4 +1,5 @@
 #include "App.h"
+// boring and beautiful main 
 int main()
 {
 	App app;

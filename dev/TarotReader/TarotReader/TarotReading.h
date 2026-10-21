@@ -3,6 +3,7 @@
 #include <vector>
 #include "TarotDeck.h"
 #include "ReadingRecord.h"
+// this class gets the readings
 class TarotReading
 {
 public:

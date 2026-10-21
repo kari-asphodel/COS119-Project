@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "TarotCard.h"
+// this class handles the entire tarot deck
 class TarotDeck
 {
 public:
