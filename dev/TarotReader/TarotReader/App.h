@@ -1,6 +1,7 @@
 #pragma once
 #include "TarotDeck.h"
 #include "TarotReading.h"
+// This class handles user input, menu options and getting  the application running
 class App
 {
 public:

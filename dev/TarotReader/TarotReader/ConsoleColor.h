@@ -7,7 +7,7 @@
 #define NOMINMAX
 #include <Windows.h>
 #endif
-
+// this namespace is to allow different colors in the console
 namespace ConsoleColor
 {
     enum class Ink

@@ -1,4 +1,5 @@
 #pragma once
+// this is a namespace for constants in the application
 namespace TarotConstants
 {
 	constexpr int FirstMajorArcana = 0;

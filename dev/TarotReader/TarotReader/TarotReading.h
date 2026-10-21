@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
+#include <vector>
 #include "TarotDeck.h"
 #include "ReadingRecord.h"
+// this class gets the readings
 class TarotReading
 {
 public:
@@ -10,6 +12,8 @@ public:
 	void ThreeCardReading();
 	void DisplayHistory() const;
 	std::string CenterText(const std::string& text, int width) const;
+	void SaveHistory(const std::string& fileName) const;
+	void LoadHistory(const std::string& fileName);
 private:
 	TarotDeck& deck;
 	bool DetermineOrientation() const;
@@ -23,5 +27,6 @@ private:
 		const TarotCard& future, bool futureReversed) const;
 
 	void DisplayMeaning(const std::string& position, const TarotCard& card, bool isReversed) const;
+	std::string GetCurrentDate() const;
 };
 

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
-
+// constructor
 TarotCard::TarotCard(
 	int number,
 	const std::string& name,
@@ -19,6 +19,7 @@ TarotCard::TarotCard(
 	this->reversedMeaning = reversedMeaning;
 	this->asciiArt = asciiArt;
 }
+// getters
 int TarotCard::GetNumber() const
 {
 	return number;
@@ -47,7 +48,7 @@ std::string TarotCard::GetAsciiArt() const
 {
 	return asciiArt;
 }
-
+// Display individual card
 void TarotCard::DisplayCard() const
 {
 	std::cout << "\n";
@@ -69,7 +70,7 @@ void TarotCard::DisplayCard() const
 		ConsoleColor::Ink::Purple);
 
 }
-
+// method to get each line of the ascii art
 std::vector<std::string>TarotCard::GetAsciiLines() const
 {
 	std::vector<std::string> lines;
@@ -84,7 +85,7 @@ std::vector<std::string>TarotCard::GetAsciiLines() const
 	}
 	return lines;
 }
-
+// displaying the entire reading
 void TarotCard::DisplayReading(bool isReversed) const
 {
 	std::cout << "\n";

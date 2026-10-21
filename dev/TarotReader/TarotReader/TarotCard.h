@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+// this class represents one card
 class TarotCard
 {
 public:
