@@ -212,7 +212,7 @@ std::string TarotReading::CenterText(const std::string& text, int width) const
     int leftPadding = totalPadding / 2;
     int rightPadding = totalPadding - leftPadding;
 
-    return std::string(leftPadding, ' ') + text + std::string(rightPadding,'');
+    return std::string(leftPadding, ' ') + text + std::string(rightPadding,' ');
 }
 // displaying the card meaning
 void TarotReading::DisplayMeaning(const std::string& position, const TarotCard& card, bool isReversed) const 
