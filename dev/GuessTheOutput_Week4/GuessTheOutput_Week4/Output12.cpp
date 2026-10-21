@@ -21,8 +21,7 @@ void Output12()
 
     std::cout << total;
 }
-
-//A 14
+//A 14 - THIS ONE
 //B 15
 //C 18
 //D 17
